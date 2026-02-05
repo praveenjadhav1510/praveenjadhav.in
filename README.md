@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# praveenjadhav.in - Terminal Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <h3>Interactive Terminal-Based Developer Portfolio</h3>
+  <p>A unique, command-line interface (CLI) styled landing page built with React.</p>
+  <a href="https://praveenjadhav.in"><strong>Explore Live Site »</strong></a>
+</div>
 
-## Available Scripts
+<br />
 
-In the project directory, you can run:
+## 🚀 Overview
 
-### `npm start`
+This website is a **developer portfolio reimagined as a terminal interface**. It offers an interactive way for visitors to learn about my skills, projects, and background by "running commands" in a simulated shell environment.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Unlike traditional portfolios, this project engages users with a retro-aesthetic while leveraging modern web technologies for performance and accessibility.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Key Features
 
-### `npm test`
+- **Interactive Terminal**: Fully functional command-line interface simulation.
+- **Typing Effects**: Realistic text rendering animations.
+- **Command System**: extensible command parser supporting `help`, `whois`, `projects`, and more.
+- **SEO Optimized**: Built with `react-helmet-async` for full social graph and search engine visibility despite the dynamic UI.
+- **Accessibility**: Semantic HTML hidden behind the canvas of the terminal for screen readers.
+- **Responsive Design**: Works on desktop and mobile (with adapted virtual keyboard/input).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Tech Stack
 
-### `npm run build`
+- **Frontend**: [React](https://reactjs.org/) (Create React App)
+- **Styling**: Javascript-driven animations & CSS Variables for theming.
+- **Icons**: [FontAwesome](https://fontawesome.com/)
+- **Movement/Animation**: Custom hooks & Framer Motion
+- **SEO**: `react-helmet-async` & JSON-LD Structured Data
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 💻 Available Commands
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Type `help` to see a full list. Some top commands include:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Command | Description |
+| :--- | :--- |
+| `whois` | Displays profile information (bio, location, type). |
+| `stack` | Lists technical skills and tech stack. |
+| `projects` | Shows a list of recent projects. |
+| `open github` | Opens GitHub profile in a new tab. |
+| `clear` | Clears the terminal screen. |
 
-### `npm run eject`
+## 🚀 Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run this project locally:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/praveenjadhav1510/praveenjadhav.in.git
+   cd praveenjadhav.in/landingpage
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Start the Development Server**
+   ```bash
+   npm start
+   ```
 
-## Learn More
+4. **Build for Production**
+   ```bash
+   npm run build
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📄 License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is open-source and available under the [MIT License](LICENSE).
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<div align="center">
+  <p>Designed & Built by <strong>Praveen Jadhav</strong></p>
+  <p>
+    <a href="https://github.com/praveenjadhav1510">GitHub</a> • 
+    <a href="https://portfolio-2-three-sooty-54.vercel.app/">Portfolio</a>
+  </p>
+</div>

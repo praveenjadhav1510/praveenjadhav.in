@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
-import SEO from "./components/SEO";
-
 // 1. Import the FontAwesome Component
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -102,7 +100,6 @@ export default function App() {
 
   return (
     <main className="console">
-      <SEO />
       {/* Hidden H1 for SEO */}
       <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: 0, overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
         Praveen Jadhav - Developer Terminal Portfolio
