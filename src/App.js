@@ -107,16 +107,14 @@ export default function App() {
         addLine({
           type: 'component',
           content: (
-            <div style={{ maxWidth: '320px', border: '1px solid #333', borderRadius: '8px', padding: '15px', background: 'rgba(20, 20, 20, 0.8)', marginTop: '10px' }}>
-              <video src={data.mediaUrl} controls style={{ width: '100%', borderRadius: '4px', maxHeight: '400px' }} />
-              <div style={{ marginTop: '15px', display: 'flex', gap: '15px', fontSize: '0.9rem' }}>
-                <a href={data.mediaUrl} target="_blank" rel="noreferrer" style={{ color: '#00ff00', textDecoration: 'none', border: '1px solid #00ff00', padding: '8px 12px', borderRadius: '4px', cursor: 'pointer' }}>
-                  <FontAwesomeIcon icon={faExternalLinkAlt} /> Open
-                </a>
-                <a href={`/api/downloadProxy?url=${encodeURIComponent(data.mediaUrl)}`} download style={{ color: 'cyan', textDecoration: 'none', border: '1px solid cyan', padding: '8px 12px', borderRadius: '4px', cursor: 'pointer' }}>
-                  Download
-                </a>
-              </div>
+            <div className="insta-card">
+              <a href={data.mediaUrl} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div className="insta-header" style={{ cursor: 'pointer' }}>
+                  <FontAwesomeIcon icon={faExternalLinkAlt} style={{ color: '#E1306C' }} />
+                  <span style={{ marginLeft: '8px' }}>Instagram Reel</span>
+                </div>
+              </a>
+              <video src={data.mediaUrl} controls className="insta-video" />
             </div>
           )
         });
