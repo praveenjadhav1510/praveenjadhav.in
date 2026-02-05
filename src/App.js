@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
+import SEO from "./components/SEO";
 
 // 1. Import the FontAwesome Component
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,7 +24,10 @@ const DOMAIN_INFO = [
   "note: main portfolio building in progress",
 ];
 
+// ... existing imports ...
+
 export default function App() {
+  // ... existing state and effects ...
   const [lines, setLines] = useState([]);
   const [input, setInput] = useState("");
   const outRef = useRef(null);
@@ -97,12 +101,19 @@ export default function App() {
   }, [lines]);
 
   return (
-    <div className="console">
+    <main className="console">
+      <SEO />
+      {/* Hidden H1 for SEO */}
+      <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: 0, overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
+        Praveen Jadhav - Developer Terminal Portfolio
+      </h1>
+
       <div className="quickLinks">
         <a
           href="https://github.com/praveenjadhav1510"
           target="_blank"
           rel="noreferrer"
+          aria-label="GitHub Profile"
         >
           {/* GitHub Icon (Brand) */}
           <FontAwesomeIcon icon={faGithub} /> GitHub
@@ -111,6 +122,7 @@ export default function App() {
           href="https://portfolio-2-three-sooty-54.vercel.app/"
           target="_blank"
           rel="noreferrer"
+          aria-label="Portfolio Website"
         >
           {/* External Link Icon (Solid) */}
           <FontAwesomeIcon icon={faExternalLinkAlt} size="sm" /> Portfolio
@@ -161,8 +173,9 @@ export default function App() {
           onKeyDown={handleKey}
           placeholder="type help"
           autoFocus
+          aria-label="Terminal Input"
         />
       </div>
-    </div>
+    </main>
   );
 }
