@@ -1,0 +1,16 @@
+{
+    "rewrites": [
+        {
+            "source": "/api/reel",
+            "destination": "/api/reel"
+        },
+        {
+            "source": "/api/downloadProxy",
+            "destination": "/api/downloadProxy"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}

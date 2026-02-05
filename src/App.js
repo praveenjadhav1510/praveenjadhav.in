@@ -40,18 +40,26 @@ export default function App() {
     return () => clearInterval(t);
   }, []);
 
-  function addLine(text) {
-    setLines((l) => [...l, { id: Date.now() + Math.random(), text }]);
+  function addLine(content) {
+    const line = typeof content === 'string'
+      ? { id: Date.now() + Math.random(), text: content }
+      : { id: Date.now() + Math.random(), ...content };
+    setLines((l) => [...l, line]);
   }
 
-  function run(cmdRaw) {
+  async function run(cmdRaw) {
     const cmd = cmdRaw.toLowerCase().trim();
     addLine("> " + cmdRaw);
+
+    if (cmdRaw.includes("instagram.com/") || cmdRaw.includes("instagr.am/")) {
+      await handleInstagram(cmdRaw);
+      return;
+    }
 
     switch (cmd) {
       case "help":
         addLine(
-          "whois owner stack projects links open github open portfolio clear",
+          "whois owner stack projects links open github open portfolio clear [instagram_url]",
         );
         break;
       case "whois":
@@ -84,6 +92,39 @@ export default function App() {
         break;
       default:
         addLine("unknown command — type help");
+    }
+  }
+
+  async function handleInstagram(url) {
+    addLine("Fetching Instagram Reel info...");
+    try {
+      // Use the relative path relying on the proxy in package.json
+      const res = await fetch(`/api/reel?url=${encodeURIComponent(url)}`);
+      const data = await res.json();
+
+      if (data.success) {
+        addLine("Media found! Rendering preview...");
+        addLine({
+          type: 'component',
+          content: (
+            <div style={{ maxWidth: '320px', border: '1px solid #333', borderRadius: '8px', padding: '15px', background: 'rgba(20, 20, 20, 0.8)', marginTop: '10px' }}>
+              <video src={data.mediaUrl} controls style={{ width: '100%', borderRadius: '4px', maxHeight: '400px' }} />
+              <div style={{ marginTop: '15px', display: 'flex', gap: '15px', fontSize: '0.9rem' }}>
+                <a href={data.mediaUrl} target="_blank" rel="noreferrer" style={{ color: '#00ff00', textDecoration: 'none', border: '1px solid #00ff00', padding: '8px 12px', borderRadius: '4px', cursor: 'pointer' }}>
+                  <FontAwesomeIcon icon={faExternalLinkAlt} /> Open
+                </a>
+                <a href={`/api/downloadProxy?url=${encodeURIComponent(data.mediaUrl)}`} download style={{ color: 'cyan', textDecoration: 'none', border: '1px solid cyan', padding: '8px 12px', borderRadius: '4px', cursor: 'pointer' }}>
+                  Download
+                </a>
+              </div>
+            </div>
+          )
+        });
+      } else {
+        addLine(`Error: ${data.error || "Could not retrieve media."}`);
+      }
+    } catch (e) {
+      addLine(`Error: ${e.message} - Ensure background server is running (npm run dev or node server.js)`);
     }
   }
 
@@ -135,12 +176,21 @@ export default function App() {
         <div className="title">-----------------------------------------</div>
 
         {lines.map((l) => {
-          const colonIndex = l.text.indexOf(":");
-          const isCommand = l.text.startsWith(">");
+          if (l.type === "component") {
+            return (
+              <div key={l.id} className="line" style={{ display: 'block', margin: '10px 0' }}>
+                {l.content}
+              </div>
+            )
+          }
+
+          const text = l.text || "";
+          const colonIndex = text.indexOf(":");
+          const isCommand = text.startsWith(">");
 
           return (
             <div key={l.id} className="line">
-              {l.text.split("").map((char, i) => {
+              {text.split("").map((char, i) => {
                 const isKey = colonIndex !== -1 && i <= colonIndex;
                 const charColor = isKey || isCommand ? "white" : undefined;
 
