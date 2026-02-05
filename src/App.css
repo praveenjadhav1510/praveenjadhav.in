@@ -1,0 +1,198 @@
+body {
+  margin: 0;
+  color: #c4b5fd;
+  background: #1e1e1e;
+}
+
+* {
+  transition: all 0.2s ease;
+}
+/* selection style */
+::selection {
+  background: #c4b5fd;
+  color: black;
+}
+
+.console {
+  height: 100vh;
+  font-family: "JetBrains Mono", monospace;
+  color: #c4b5fd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* output area */
+
+.output {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px;
+  padding-bottom: 90px; /* space for input bar */
+  line-height: 1.7;
+}
+
+/* smooth appearing lines */
+
+.line {
+  /* Removed line animation, using char animation instead */
+}
+
+.char {
+  opacity: 0;
+  display: inline-block;
+  white-space: pre-wrap; /* Keeps spaces intact */
+  animation: appear 0.2s forwards;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  color: white;
+}
+
+/* fixed bottom input */
+
+.inputBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1e1e1e;
+  border-top: 1px solid #c4b5fd;
+  padding: 14px 24px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.inputBar span {
+  color: white;
+  font-weight: bold;
+}
+
+.inputBar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.inputBar input::placeholder {
+  color: #c4b5fd80;
+}
+
+/* floating links */
+
+.quickLinks {
+  position: fixed;
+  top: 14px;
+  right: 22px;
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.quickLinks a {
+  background: #c4b5fd30;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #c4b5fd;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.quickLinks a:hover {
+  text-decoration: underline;
+}
+/* ... existing body and styles ... */
+
+.title {
+  color: white;
+  /* Added these 3 lines to align icon and text */
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+/* floating links */
+
+.quickLinks {
+  position: fixed;
+  top: 14px;
+  right: 22px;
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.quickLinks a {
+  background: #c4b5fd30;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #c4b5fd;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: 0.9;
+
+  /* Added these 3 lines to align icon and text */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ... rest of your CSS ... */
+/* responsive */
+
+@media (max-width: 600px) {
+  .output {
+    transform: translateY(40px);
+    padding: 16px;
+    padding-bottom: 90px;
+    font-size: 14px;
+  }
+  .quickLinks {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .inputBar {
+    padding: 12px 16px;
+  }
+}
+/* ===== CMD STYLE SCROLLBAR ===== */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e; /* console background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444; /* subtle gray thumb */
+  border-radius: 2px; /* almost square */
+  border: 1px solid #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4b5fd; /* lavender accent */
+}
+
+::-webkit-scrollbar-corner {
+  background: #1e1e1e;
+}
